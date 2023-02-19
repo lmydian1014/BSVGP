@@ -2,13 +2,13 @@
 An R package for performing the Bayesian Inferences on Spatially-Varying Correlations via Gaussian Processes. 
 
 ### Install and load the package
-  ```
-  list.of.packages <- c("truncnorm", "MASS", "invgamma", "BayesGPfit", "lattice", "sn", "coda", "mcmcplots", "mcmc","Rcpp", "plgp", "matrixStats", "igraph" )
-  new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-  if(length(new.packages)>0) install.packages(new.packages)
-  # truncnorm, MASS, invgamma, BayesGPfit, lattice, sn, coda, mcmcplots, mcmc, Rcpp, plgp, matrixStats, igraph
-  devtools::install_github("lmydian1014/BSVGP")
-  ```
+```
+list.of.packages = c("truncnorm", "MASS", "invgamma", "BayesGPfit", "lattice", "sn", "coda", "mcmcplots", "mcmc","Rcpp", "plgp", "matrixStats", "igraph")
+new.packages = list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)>0) install.packages(new.packages)
+  
+devtools::install_github("lmydian1014/BSVGP")
+```
 ### Simulate the image
  ```
   dat = gen_data_design(n=50, d = 2, num_grids = 32, grids_lim = c(0,1), poly_degree = 32, a = 0.1, b = 1, pos_radius = 0.1, neg_radius = 0.1, pos_mag = 0.75, neg_mag = 0.85)
