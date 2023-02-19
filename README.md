@@ -43,7 +43,7 @@ chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq
 #### Analysis the MCMC chain and perform selection
 ```
 res_gibbs = analysis_chain(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
-
 ```
+#### Plot the selection results and the inclusion probability map
 ![alt text](https://github.com/lmydian1014/BSVGP/blob/main/example.png)
 
