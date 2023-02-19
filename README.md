@@ -17,6 +17,7 @@ An R package for performing the Bayesian Inferences on Spatially-Varying Correla
 
 #### model representation and generate initial values for parameters of interest
 ```
+n = 50
 Y_1 = dat$Y_1
 Y_2 = dat$Y_2 
 Y_pos = (Y_1 + Y_2)/2
@@ -39,8 +40,8 @@ tau_2_sq_init = rinvgamma(V, 3, 0.1)
 ```
 #### Run BSV-GP model
 ```
-T =800
-chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres, rinvgamma)
+T = 800
+chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, 1, 1, 1, 1, 0, rinvgamma)
 ```
 #### Analysis the MCMC chain and perform selection
 ```
