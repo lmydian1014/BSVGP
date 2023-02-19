@@ -13,9 +13,9 @@ An R package for performing the Bayesian Inferences on Spatially-Varying Correla
                           pos_radius = 0.1, neg_radius = 0.1, pos_mag = 0.75, neg_mag = 0.85)
  ```
 - Bayesian Inferences on Spatially-Varying Correlations
-```
-##### model representation
 
+- model representation and generate initail value for MCMC
+```
 Y_1 = dat$Y_1
 Y_2 = dat$Y_2 
 Y_pos = (Y_1 + Y_2)/2
@@ -26,7 +26,6 @@ Xmat = eig$Xmat
 lambda = eig$lambda
 L = length(lambda)
 V = nrow(grids)
-###### generate random initial value for MCMC
 e_pos_init = matrix(NA, nrow = length(lambda), ncol = n) 
 e_neg_init = matrix(NA, nrow = length(lambda), ncol = n) 
 for(i in c(1:n)){
@@ -36,13 +35,14 @@ for(i in c(1:n)){
 c_init = rnorm(length(lambda), 0, sqrt(lambda))
 tau_1_sq_init = rinvgamma(V, 3, 0.1)
 tau_2_sq_init = rinvgamma(V, 3, 0.1)
-###### Run MCMC
+```
+- Run BSV-GP model
+```
 T =800
 chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres, rinvgamma)
-res_gibbs = analysis_chain(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
-
-chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, 
-                         c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres, rinvgamma)
+```
+- Analysis the MCMC chain and perform selection
+```
 res_gibbs = analysis_chain(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
 
 ```
