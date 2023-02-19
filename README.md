@@ -9,8 +9,7 @@ An R package for performing the Bayesian Inferences on Spatially-Varying Correla
   ```
 - Simulate the image
  ```
-  dat = gen_data_design(n=50, d = 2, num_grids = 32, grids_lim = c(0,1), poly_degree = 32, a = 0.1, b = 1, 
-                          pos_radius = 0.1, neg_radius = 0.1, pos_mag = 0.75, neg_mag = 0.85)
+  dat = gen_data_design(n=50, d = 2, num_grids = 32, grids_lim = c(0,1), poly_degree = 32, a = 0.1, b = 1, pos_radius = 0.1, neg_radius = 0.1, pos_mag = 0.75, neg_mag = 0.85)
  ```
 - Bayesian Inferences on Spatially-Varying Correlations
 
