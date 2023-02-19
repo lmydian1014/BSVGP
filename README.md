@@ -48,5 +48,18 @@ chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq
 res_gibbs = analysis_chain(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
 ```
 #### Plot the selection results and the inclusion probability map
+```
+grid.panel = function(...) {
+    panel.levelplot(...)
+    panel.abline(h = seq(0.25, 0.75, length = 3), v = seq(0.25, 0.75, length = 3), lty = 3, col = gray(0.5))
+}
+
+fig = fourfigs.levelplot(
+    res_gibbs$prob_pos, res_gibbs$prob_neg, dat$rho, res_gibbs$cor_type,
+    grids[, 1],grids[, 2],
+    titles = c("BSV−GP Pos.Cor.Prob", "BSV−GP Neg.Cor.Prob", "True correlation", "BSV−GP Selection"),
+    layout = c(2, 2), panel = grid.panel)
+```
+
 ![alt text](https://github.com/lmydian1014/BSVGP/blob/main/example.png)
 
