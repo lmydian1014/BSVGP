@@ -45,5 +45,5 @@ chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq
 res_gibbs = analysis_chain(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
 
 ```
-![alt text](https://github.com/lmydian1014/BSVGP/exmaple.png)
+![alt text](https://github.com/lmydian1014/BSVGP/blob/main/example.png)
 
