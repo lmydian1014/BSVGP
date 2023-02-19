@@ -337,24 +337,13 @@ List sample_gibbs_cpp(mat grids, int T, int V, int n, int L, mat Xmat, vec lambd
 	
 	temp_logL.push_back(loglikelihood_cpp(n, Se_pos, Se_neg, Sc, r, s_sq, Xmat, Y_pos, Y_neg, temp_thres));
 	gibbs_thres.push_back(thres_init);
-	
+	print("Start Sampling")
 	for(int t = 0; t < (T-1); t++){
-		if(t % 1 == 0){
+		if(t % 100 == 0){
 			Rcout << t << endl;
 		}
 		mat para_tau(V, 4);
 		para_tau = post_tau_cpp(n, Se_pos, Se_neg, Sc, Xmat, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, temp_thres);
-		/*gibbs_tau_1_sq.col(t+1) = randg(V) % (sqrt(para_tau.col(0)) % (1.0/para_tau.col(1))) + (1.0/para_tau.col(1)) % (para_tau.col(0) - sqrt(para_tau.col(0)));
-		temp_tau_1_sq = gibbs_tau_1_sq.col(t+1);
-		gibbs_tau_2_sq.col(t+1) = randg(V) % (sqrt(para_tau.col(2)) % (1.0/para_tau.col(3))) + (1.0/para_tau.col(3)) % (para_tau.col(2) - sqrt(para_tau.col(2)));
-		temp_tau_2_sq = gibbs_tau_2_sq.col(t+1);*/
-		/*for(int v=0; v < V; v++){
-
-			gibbs_tau_1_sq(v, t+1) = 1.0/randg<double>(distr_param(para_tau(v, 0), 1.0/para_tau(v, 1)));
-			temp_tau_1_sq(v) = gibbs_tau_1_sq(v, t+1);
-			gibbs_tau_2_sq(v, t+1) = 1.0/randg<double>(distr_param(para_tau(v, 2), 1.0/para_tau(v, 3)));
-			temp_tau_2_sq(v) = gibbs_tau_2_sq(v, t+1);
-		}*/
 		gibbs_tau_1_sq.col(t+1) = as<vec>(rinvgamma(V, para_tau.col(0), para_tau.col(1)));
 		temp_tau_1_sq = gibbs_tau_1_sq.col(t+1);
 		gibbs_tau_2_sq.col(t+1) = as<vec>(rinvgamma(V, para_tau.col(2), para_tau.col(3)));
@@ -392,8 +381,3 @@ List sample_gibbs_cpp(mat grids, int T, int V, int n, int L, mat Xmat, vec lambd
 }
 
 
-
-
-/*
-post_tau_cpp(100, e_pos = dat$true_e_pos, e_neg = dat$true_e_neg, dat$true_c, Xmat, Y_pos, Y_neg, 1, 1, 1, 1, 1)
-*/
