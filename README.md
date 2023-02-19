@@ -13,7 +13,7 @@ An R package for performing the Bayesian Inferences on Spatially-Varying Correla
  ```
 ### Bayesian Inferences on Spatially-Varying Correlations
 
-#### model representation and generate initail value for MCMC
+#### model representation and generate initial values for parameters of interest
 ```
 Y_1 = dat$Y_1
 Y_2 = dat$Y_2 
