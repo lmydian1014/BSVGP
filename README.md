@@ -59,7 +59,7 @@ grid.panel = function(...) {
 fig = fourfigs.levelplot(
     res_gibbs$prob_pos, res_gibbs$prob_neg, dat$rho, res_gibbs$cor_type,
     grids[, 1],grids[, 2],
-    titles = c("TCGP Pos.Cor.Prob", "TCGP Neg.Cor.Prob", "True correlation", "TCGP Selection"),
+    titles = c("Pos.Cor.Prob", "Neg.Cor.Prob", "True correlation", "Selection"),
     layout = c(2, 2), panel = grid.panel)
 ```
 
