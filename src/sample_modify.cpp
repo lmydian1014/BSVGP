@@ -337,7 +337,7 @@ List sample_gibbs_cpp(mat grids, int T, int V, int n, int L, mat Xmat, vec lambd
 	
 	temp_logL.push_back(loglikelihood_cpp(n, Se_pos, Se_neg, Sc, r, s_sq, Xmat, Y_pos, Y_neg, temp_thres));
 	gibbs_thres.push_back(thres_init);
-	print("Start Sampling")
+	print("Start Sampling");
 	for(int t = 0; t < (T-1); t++){
 		if(t % 100 == 0){
 			Rcout << t << endl;
