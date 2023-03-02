@@ -75,13 +75,6 @@ analysis_chain = function(T, dat, chain, burn_in, grids, Xmat, thres){
 		denor1 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_1_sq[,i])
 		denor2 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_2_sq[,i])
 		rho_hat[,i]=  numer/(denor1 * denor2)
-		# xi_hat_m[,i] = Xmat %*% gibbs_c[,i]
-		# sigma_pos_sq_hat_m[,i] = ifelse(xi_hat_m[,i] > gibbs_thres[i],xi_hat_m[,i]^2, 0)
-  #       sigma_neg_sq_hat_m[,i] = ifelse(xi_hat_m[,i] < -gibbs_thres[i],xi_hat_m[,i]^2, 0)
-		# numer = sigma_pos_sq_hat_m[,i] - sigma_neg_sq_hat_m[,i]
-		# denor1 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_1_sq[,i])
-		# denor2 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_2_sq[,i])
-		# rho_hat[,i]=  numer/(denor1 * denor2)
 	}
 	rho_hat = rho_hat[,burn_in:T]
 	rho_true = dat$rho 
@@ -97,28 +90,6 @@ analysis_chain = function(T, dat, chain, burn_in, grids, Xmat, thres){
 		prob_pos = append(prob_pos, num_pos/(T - burn_in + 1))
 		prob_neg = append(prob_neg, num_neg/(T - burn_in + 1))
 		prob_0 = append(prob_0, num_0/(T - burn_in + 1))
-		
-		# if(max(prob_pos[v], prob_neg[v], prob_0[v]) == prob_pos[v] && prob_pos[v] != prob_neg[v]){
-		# 	rho_mean[v] = 1
-		# }
-		# if(max(prob_pos[v], prob_neg[v], prob_0[v]) == prob_neg[v] && prob_pos[v] != prob_neg[v]){
-		# 	rho_mean[v] = -1
-		# }
-	
-		# if(max(prob_pos[v], prob_neg[v], prob_0[v]) == prob_0[v]){
-		# 	rho_mean[v] = 0
-		# }
-		#if(num_0 > (T - burn_in + 1)/2){
-
-		# if(num_0 == max(num_0, num_pos, num_neg)){
-		# 	next;
-		# }
-		# else if(num_pos == max(num_0, num_pos, num_neg)){
-	 #     	rho_mean[v] = 1
-	 #     }
-	 #    else{
-	 #     	rho_mean[v] = -1
-	 #     }
 	  
 		if(num_0 > (T - burn_in + 1)/3){
 			next;
@@ -301,28 +272,6 @@ analysis_chain_soft = function(T, dat, chain, burn_in, grids, Xmat, thres){
 		prob_pos = append(prob_pos, num_pos/(T - burn_in + 1))
 		prob_neg = append(prob_neg, num_neg/(T - burn_in + 1))
 		prob_0 = append(prob_0, num_0/(T - burn_in + 1))
-		
-		# if(max(prob_pos[v], prob_neg[v], prob_0[v]) == prob_pos[v] && prob_pos[v] != prob_neg[v]){
-		# 	rho_mean[v] = 1
-		# }
-		# if(max(prob_pos[v], prob_neg[v], prob_0[v]) == prob_neg[v] && prob_pos[v] != prob_neg[v]){
-		# 	rho_mean[v] = -1
-		# }
-	
-		# if(max(prob_pos[v], prob_neg[v], prob_0[v]) == prob_0[v]){
-		# 	rho_mean[v] = 0
-		# }
-		#if(num_0 > (T - burn_in + 1)/2){
-
-		# if(num_0 == max(num_0, num_pos, num_neg)){
-		# 	next;
-		# }
-		# else if(num_pos == max(num_0, num_pos, num_neg)){
-	 #     	rho_mean[v] = 1
-	 #     }
-	 #    else{
-	 #     	rho_mean[v] = -1
-	 #     }
 	  
 		if(num_0 > (T - burn_in + 1)/4){
 			next;
