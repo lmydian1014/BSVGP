@@ -8,6 +8,8 @@ new.packages = list.of.packages[!(list.of.packages %in% installed.packages()[,"P
 if(length(new.packages)>0) install.packages(new.packages)
   
 devtools::install_github("lmydian1014/BSVGP")
+library(BSVGP)
+
 ```
 ### Simulate the image
  ```
