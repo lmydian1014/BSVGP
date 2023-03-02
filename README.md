@@ -63,5 +63,5 @@ fig = fourfigs.levelplot(
     layout = c(2, 2), panel = grid.panel)
 ```
 
-![alt text](https://github.com/lmydian1014/BSVGP/blob/main/example.png)
+![alt text](https://github.com/lmydian1014/BSVGP/blob/main/fig.png)
 
