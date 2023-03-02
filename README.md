@@ -1,4 +1,4 @@
-# Bayesian Inferences on Spatially-Varying Correlations via Gaussian Processes
+# Bayesian Inferences on Spatially-Varying Correlations via the Thresholded Correlation Gaussian Processes
 An R package for performing the Bayesian Inferences on Spatially-Varying Correlations via Gaussian Processes. 
 
 ### Install and load the package
