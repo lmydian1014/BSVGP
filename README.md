@@ -1,5 +1,5 @@
 # Bayesian Inferences on Spatially-Varying Correlations via the Thresholded Correlation Gaussian Processes
-An R package for performing the Bayesian Inferences on Spatially-Varying Correlations via Gaussian Processes. 
+An R package for performing the Bayesian Inferences on Spatially-Varying Correlations via the Thresholded Correlation Gaussian Processes. 
 
 ### Install and load the package
 ```
@@ -59,7 +59,7 @@ grid.panel = function(...) {
 fig = fourfigs.levelplot(
     res_gibbs$prob_pos, res_gibbs$prob_neg, dat$rho, res_gibbs$cor_type,
     grids[, 1],grids[, 2],
-    titles = c("BSV−GP Pos.Cor.Prob", "BSV−GP Neg.Cor.Prob", "True correlation", "BSV−GP Selection"),
+    titles = c("TCGP Pos.Cor.Prob", "TCGP Neg.Cor.Prob", "True correlation", "TCGP Selection"),
     layout = c(2, 2), panel = grid.panel)
 ```
 
