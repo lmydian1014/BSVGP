@@ -40,7 +40,7 @@ c_init = rnorm(length(lambda), 0, sqrt(lambda))
 tau_1_sq_init = rinvgamma(V, 3, 0.1)
 tau_2_sq_init = rinvgamma(V, 3, 0.1)
 ```
-#### Run BSV-GP model
+#### Run TCGP model
 ```
 T = 800
 chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, 1, 1, 1, 1, 0, rinvgamma)
