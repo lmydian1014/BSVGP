@@ -12,7 +12,7 @@ using namespace std;
 
 // rcpparma_hello_world
 arma::mat rcpparma_hello_world();
-RcppExport SEXP _BSVGP_rcpparma_hello_world() {
+RcppExport SEXP _TCGP_rcpparma_hello_world() {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -22,7 +22,7 @@ END_RCPP
 }
 // rcpparma_outerproduct
 arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP _BSVGP_rcpparma_outerproduct(SEXP xSEXP) {
+RcppExport SEXP _TCGP_rcpparma_outerproduct(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -33,7 +33,7 @@ END_RCPP
 }
 // rcpparma_innerproduct
 double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP _BSVGP_rcpparma_innerproduct(SEXP xSEXP) {
+RcppExport SEXP _TCGP_rcpparma_innerproduct(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -44,7 +44,7 @@ END_RCPP
 }
 // rcpparma_bothproducts
 Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP _BSVGP_rcpparma_bothproducts(SEXP xSEXP) {
+RcppExport SEXP _TCGP_rcpparma_bothproducts(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -55,7 +55,7 @@ END_RCPP
 }
 // fun_mul
 mat fun_mul(mat A, colvec x);
-RcppExport SEXP _BSVGP_fun_mul(SEXP ASEXP, SEXP xSEXP) {
+RcppExport SEXP _TCGP_fun_mul(SEXP ASEXP, SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -67,7 +67,7 @@ END_RCPP
 }
 // fun_dev
 mat fun_dev(mat A, colvec x);
-RcppExport SEXP _BSVGP_fun_dev(SEXP ASEXP, SEXP xSEXP) {
+RcppExport SEXP _TCGP_fun_dev(SEXP ASEXP, SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -79,7 +79,7 @@ END_RCPP
 }
 // G_thres_cpp
 vec G_thres_cpp(vec x, double thres);
-RcppExport SEXP _BSVGP_G_thres_cpp(SEXP xSEXP, SEXP thresSEXP) {
+RcppExport SEXP _TCGP_G_thres_cpp(SEXP xSEXP, SEXP thresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -91,7 +91,7 @@ END_RCPP
 }
 // post_e_cpp
 mat post_e_cpp(int l, mat Se_pos, mat Se_neg, mat Se_pos_other, mat Se_neg_other, vec Sc, vec r, vec s_sq, mat Xmat, vec lambda, mat Y_pos, mat Y_neg, double thres);
-RcppExport SEXP _BSVGP_post_e_cpp(SEXP lSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP Se_pos_otherSEXP, SEXP Se_neg_otherSEXP, SEXP ScSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP thresSEXP) {
+RcppExport SEXP _TCGP_post_e_cpp(SEXP lSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP Se_pos_otherSEXP, SEXP Se_neg_otherSEXP, SEXP ScSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP thresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -114,7 +114,7 @@ END_RCPP
 }
 // post_tau_cpp
 mat post_tau_cpp(int n, mat Se_pos, mat Se_neg, vec Sc, mat Xmat, mat Y_pos, mat Y_neg, double alpha1, double beta1, double alpha2, double beta2, double thres);
-RcppExport SEXP _BSVGP_post_tau_cpp(SEXP nSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP ScSEXP, SEXP XmatSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP alpha1SEXP, SEXP beta1SEXP, SEXP alpha2SEXP, SEXP beta2SEXP, SEXP thresSEXP) {
+RcppExport SEXP _TCGP_post_tau_cpp(SEXP nSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP ScSEXP, SEXP XmatSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP alpha1SEXP, SEXP beta1SEXP, SEXP alpha2SEXP, SEXP beta2SEXP, SEXP thresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -136,7 +136,7 @@ END_RCPP
 }
 // sample_c_l_cpp
 double sample_c_l_cpp(mat grids, int n, int l, mat Se_pos, mat Se_neg, vec Sc_other, vec r, vec s_sq, double tau_xi_sq, mat Xmat, vec lambda, mat Y_pos, mat Y_neg, double thres);
-RcppExport SEXP _BSVGP_sample_c_l_cpp(SEXP gridsSEXP, SEXP nSEXP, SEXP lSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP Sc_otherSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP tau_xi_sqSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP thresSEXP) {
+RcppExport SEXP _TCGP_sample_c_l_cpp(SEXP gridsSEXP, SEXP nSEXP, SEXP lSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP Sc_otherSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP tau_xi_sqSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP thresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -160,7 +160,7 @@ END_RCPP
 }
 // sample_thres_cpp
 double sample_thres_cpp(mat grids, int n, mat Se_pos, mat Se_neg, vec Sc, vec r, vec s_sq, double tau_xi_sq, mat Xmat, vec lambda, mat Y_pos, mat Y_neg);
-RcppExport SEXP _BSVGP_sample_thres_cpp(SEXP gridsSEXP, SEXP nSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP ScSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP tau_xi_sqSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP) {
+RcppExport SEXP _TCGP_sample_thres_cpp(SEXP gridsSEXP, SEXP nSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP ScSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP tau_xi_sqSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -182,7 +182,7 @@ END_RCPP
 }
 // loglikelihood_cpp
 double loglikelihood_cpp(int n, mat Se_pos, mat Se_neg, vec Sc, vec r, vec s_sq, mat Xmat, mat Y_pos, mat Y_neg, double thres);
-RcppExport SEXP _BSVGP_loglikelihood_cpp(SEXP nSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP ScSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP XmatSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP thresSEXP) {
+RcppExport SEXP _TCGP_loglikelihood_cpp(SEXP nSEXP, SEXP Se_posSEXP, SEXP Se_negSEXP, SEXP ScSEXP, SEXP rSEXP, SEXP s_sqSEXP, SEXP XmatSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP thresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -202,7 +202,7 @@ END_RCPP
 }
 // sample_gibbs_cpp
 List sample_gibbs_cpp(mat grids, int T, int V, int n, int L, mat Xmat, vec lambda, vec tau_1_sq_init, vec tau_2_sq_init, vec c_init, mat e_pos_init, mat e_neg_init, mat Y_pos, mat Y_neg, double alpha1, double beta1, double alpha2, double beta2, double thres_init, Function rinvgamma);
-RcppExport SEXP _BSVGP_sample_gibbs_cpp(SEXP gridsSEXP, SEXP TSEXP, SEXP VSEXP, SEXP nSEXP, SEXP LSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP tau_1_sq_initSEXP, SEXP tau_2_sq_initSEXP, SEXP c_initSEXP, SEXP e_pos_initSEXP, SEXP e_neg_initSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP alpha1SEXP, SEXP beta1SEXP, SEXP alpha2SEXP, SEXP beta2SEXP, SEXP thres_initSEXP, SEXP rinvgammaSEXP) {
+RcppExport SEXP _TCGP_sample_gibbs_cpp(SEXP gridsSEXP, SEXP TSEXP, SEXP VSEXP, SEXP nSEXP, SEXP LSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP tau_1_sq_initSEXP, SEXP tau_2_sq_initSEXP, SEXP c_initSEXP, SEXP e_pos_initSEXP, SEXP e_neg_initSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP alpha1SEXP, SEXP beta1SEXP, SEXP alpha2SEXP, SEXP beta2SEXP, SEXP thres_initSEXP, SEXP rinvgammaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
