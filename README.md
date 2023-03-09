@@ -10,8 +10,6 @@ libraries(list.of.packages)
 
 devtools::install_github("lmydian1014/TCGP")
 library(TCGP)
-
-
 ```
 ### Simulate the image
  ```
