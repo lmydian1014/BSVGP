@@ -3,12 +3,14 @@ An R package for performing the Bayesian Inferences on Spatially-Varying Correla
 
 ### Install and load the package
 ```
-list.of.packages = c("truncnorm", "MASS", "invgamma", "BayesGPfit", "lattice", "sn", "coda", "mcmcplots", "mcmc","Rcpp", "plgp", "matrixStats", "igraph")
+list.of.packages = c("truncnorm", "MASS", "invgamma", "BayesGPfit", "lattice", "sn", "coda", "mcmcplots", "mcmc","Rcpp", "plgp", "matrixStats", "igraph", "easypackages")
 new.packages = list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)>0) install.packages(new.packages)
-  
-devtools::install_github("lmydian1014/BSVGP")
-library(BSVGP)
+libraries(list.of.packages)
+
+devtools::install_github("lmydian1014/TCGP")
+library(TCGP)
+
 
 ```
 ### Simulate the image
