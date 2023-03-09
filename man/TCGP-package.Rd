@@ -1,25 +1,25 @@
-\name{BSVGP-package}
-\alias{BSVGP-package}
-\alias{BSVGP}
+\name{TCGP-package}
+\alias{TCGP-package}
+\alias{TCGP}
 \docType{package}
 \title{
-\packageTitle{BSVGP}
+\packageTitle{TCGP}
 }
 \description{
-\packageDescription{BSVGP}
+\packageDescription{TCGP}
 }
 \details{
 
 The DESCRIPTION file:
-\packageDESCRIPTION{BSVGP}
-\packageIndices{BSVGP}
+\packageDESCRIPTION{TCGP}
+\packageIndices{TCGP}
 ~~ An overview of how to use the package, including the most important ~~
 ~~ functions ~~
 }
 \author{
-\packageAuthor{BSVGP}
+\packageAuthor{TCGP}
 
-Maintainer: \packageMaintainer{BSVGP}
+Maintainer: \packageMaintainer{TCGP}
 }
 \references{
 ~~ Literature or other references for background information ~~
