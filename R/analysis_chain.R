@@ -111,65 +111,19 @@ TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat){
 	cov_hat = sigma_pos_sq_hat - sigma_neg_sq_hat
 	true_cov = dat$sigma_pos_sq - dat$sigma_neg_sq
 
-
 	true_thres_xi = dat$sigma_pos_sq - dat$sigma_neg_sq
 	true_abs_thres_xi = abs(true_thres_xi)
 	true_var_Y_1 = dat$tau_1_sq + true_abs_thres_xi
 	true_var_Y_2 = dat$tau_2_sq + true_abs_thres_xi
-	fig_rho = twofigs.levelplot(
-	 	rho_mean, dat$rho,
-		grids[, 1],
-	    grids[, 2],
-	    titles = c("rho_hat", "rho")
-	)
-	fig_rho2 = twofigs.levelplot(
-	 	rho2, dat$rho,
-		grids[, 1],
-	    grids[, 2],
-	    titles = c("rho_hat", "rho")
-	)
-	fig_tau1 = twofigs.levelplot(
-	 	tau_1_sq_hat, dat$tau_1_sq, 
-		grids[, 1],
-	    grids[, 2],
-	    titles = c("tau_1_sq_hat", "tau_1_sq")
-	)
-	fig_tau2 = twofigs.levelplot(
-	 	tau_2_sq_hat, dat$tau_2_sq, 
-		grids[, 1],
-	    grids[, 2],
-	    titles = c("tau_2_sq_hat", "tau_2_sq")
-	)
-	fig_sigma_pos_sq = twofigs.levelplot(
-     	sigma_pos_sq_hat, c(dat$sigma_pos_sq),
-     	grids[, 1],
-     	grids[, 2],
-     	titles = c("sigma_pos_sq_hat", "sigma_pos_sq")
- 	)
-
-	fig_sigma_neg_sq = twofigs.levelplot(
-     	sigma_neg_sq_hat, c(dat$sigma_neg_sq),
-     	grids[, 1],
-     	grids[, 2],
-     	titles = c("sigma_neg_sq_hat", "sigma_neg_sq")
- 	)
 	
- 	fig_cov = twofigs.levelplot(
-     	cov_hat, true_cov,
-     	grids[, 1],
-     	grids[, 2],
-     	titles = c("cov_hat", "cov")
- 	)
- 	fig_prob_map = threefigs.levelplot(
-     	prob_pos, prob_neg, prob_0, 
-     	grids[, 1],
-     	grids[, 2],
-     	titles = c("prob_pos", "prob_neg", "prob_0")
- 	)
-	return(list('xi_hat_m' = xi_hat_m, 'cor_type' = rho_mean, 'rho_hat' = rho_hat, 'var_Y_1_hat' = var_Y_1_hat, 'var_Y_2_hat' = var_Y_2_hat, 'cov_hat' = cov_hat, 
-		'fig_rho' = fig_rho, 'fig_rho2' = fig_rho2,'fig_sigma_pos_sq' = fig_sigma_pos_sq, 'fig_sigma_neg_sq' = fig_sigma_neg_sq, 
-		'fig_cov' = fig_cov, 'sensi_pos' = sensi_pos, 'sensi_neg' = sensi_neg, 'speci_pos' = speci_pos, 'speci_neg' = speci_neg, 'FDR_pos' = FDR_pos, 'FDR_neg' = FDR_neg, 'fig_tau1' = fig_tau1,
-		'fig_tau2' = fig_tau2, 'fig_prob_map' = fig_prob_map, "prob_pos" = prob_pos, "prob_neg" = prob_neg, "prob_0" = prob_0))
+	#return(list('xi_hat_m' = xi_hat_m, 'cor_type' = rho_mean, 'rho_hat' = rho_hat, 'var_Y_1_hat' = var_Y_1_hat, 'var_Y_2_hat' = var_Y_2_hat, 'cov_hat' = cov_hat, 
+	#	'fig_rho' = fig_rho, 'fig_rho2' = fig_rho2,'fig_sigma_pos_sq' = fig_sigma_pos_sq, 'fig_sigma_neg_sq' = fig_sigma_neg_sq, 
+	#	'fig_cov' = fig_cov, 'sensi_pos' = sensi_pos, 'sensi_neg' = sensi_neg, 'speci_pos' = speci_pos, 'speci_neg' = speci_neg, 'FDR_pos' = FDR_pos, 'FDR_neg' = FDR_neg, 'fig_tau1' = fig_tau1,
+	#	'fig_tau2' = fig_tau2, 'fig_prob_map' = fig_prob_map, "prob_pos" = prob_pos, "prob_neg" = prob_neg, "prob_0" = prob_0))
+	return(list('cor_type' = rho_mean, 'rho_hat' = rho_hat, 'sensi_pos' = sensi_pos, 'sensi_neg' = sensi_neg, 'speci_pos' = speci_pos, 'speci_neg' = speci_neg, 
+		'FDR_pos' = FDR_pos, 'FDR_neg' = FDR_neg, 'fig_tau1' = fig_tau1, 'fig_tau2' = fig_tau2, 
+		"prob_pos" = prob_pos, "prob_neg" = prob_neg, "prob_0" = prob_0))
+
 }
 
 analysis_chain_ABCD = function(T, chain, burn_in, V, Xmat){
