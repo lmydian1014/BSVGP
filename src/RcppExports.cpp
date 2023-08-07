@@ -200,9 +200,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// sample_gibbs_cpp
-List sample_gibbs_cpp(mat grids, int T, int V, int n, int L, mat Xmat, vec lambda, vec tau_1_sq_init, vec tau_2_sq_init, vec c_init, mat e_pos_init, mat e_neg_init, mat Y_pos, mat Y_neg, double alpha1, double beta1, double alpha2, double beta2, double thres_init, Function rinvgamma);
-RcppExport SEXP _TCGP_sample_gibbs_cpp(SEXP gridsSEXP, SEXP TSEXP, SEXP VSEXP, SEXP nSEXP, SEXP LSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP tau_1_sq_initSEXP, SEXP tau_2_sq_initSEXP, SEXP c_initSEXP, SEXP e_pos_initSEXP, SEXP e_neg_initSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP alpha1SEXP, SEXP beta1SEXP, SEXP alpha2SEXP, SEXP beta2SEXP, SEXP thres_initSEXP, SEXP rinvgammaSEXP) {
+// TCGP_fit
+List TCGP_fit(mat grids, int T, int V, int n, int L, mat Xmat, vec lambda, vec tau_1_sq_init, vec tau_2_sq_init, vec c_init, mat e_pos_init, mat e_neg_init, mat Y_pos, mat Y_neg, double alpha1, double beta1, double alpha2, double beta2, double thres_init, Function rinvgamma);
+RcppExport SEXP _TCGP_TCGP_fit(SEXP gridsSEXP, SEXP TSEXP, SEXP VSEXP, SEXP nSEXP, SEXP LSEXP, SEXP XmatSEXP, SEXP lambdaSEXP, SEXP tau_1_sq_initSEXP, SEXP tau_2_sq_initSEXP, SEXP c_initSEXP, SEXP e_pos_initSEXP, SEXP e_neg_initSEXP, SEXP Y_posSEXP, SEXP Y_negSEXP, SEXP alpha1SEXP, SEXP beta1SEXP, SEXP alpha2SEXP, SEXP beta2SEXP, SEXP thres_initSEXP, SEXP rinvgammaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -226,7 +226,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type beta2(beta2SEXP);
     Rcpp::traits::input_parameter< double >::type thres_init(thres_initSEXP);
     Rcpp::traits::input_parameter< Function >::type rinvgamma(rinvgammaSEXP);
-    rcpp_result_gen = Rcpp::wrap(sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init, tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres_init, rinvgamma));
+    rcpp_result_gen = Rcpp::wrap(TCGP_fit(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init, tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres_init, rinvgamma));
     return rcpp_result_gen;
 END_RCPP
 }
