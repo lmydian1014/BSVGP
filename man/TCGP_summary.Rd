@@ -1,6 +1,5 @@
 \name{TCGP_summary}
 \alias{TCGP_summary}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
  The summary of the posterior sampling results of the Thresholded Correlation Gaussian Process.
 }
@@ -8,7 +7,7 @@
 \usage{
 TCGP_summary(T, dat, chain, burn_in, grids, Xmat, thres)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{T}{A integer number to specify the number of iteractions in MCMC sampling.}
   \item{dat}{A list of data including grids, Y_1 and Y_2.}
@@ -17,7 +16,6 @@ TCGP_summary(T, dat, chain, burn_in, grids, Xmat, thres)
   \item{grids}{A matrix of real numbers as grid points where rows are observations and columns are coordinates.}
   \item{Xmat}{A matrix real numbers for the basis functions evaluated at the grid points, where rows are observations and columns are the basis functions.}
 }
-
 
 \value{
     \item{cor_type}{A vector with length V specifies the correlation type of each voxel. cor_type = 1 and -1 represents the significant positive or negative correlation while cor_type = 0 represents there is no significant correlation.}
