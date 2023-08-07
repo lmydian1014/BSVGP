@@ -43,11 +43,11 @@ tau_2_sq_init = rinvgamma(V, 3, 0.1)
 #### Run TCGP model
 ```
 T = 800
-chain = sample_gibbs_cpp(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, 1, 1, 1, 1, 0, rinvgamma)
+chain = TCGP_fit(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, 1, 1, 1, 1, 0, rinvgamma)
 ```
 #### Analysis the MCMC chain and perform selection
 ```
-res_gibbs = analysis_chain(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
+res_gibbs = TCGP_summary(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
 ```
 #### Plot the selection results and the inclusion probability map
 ```
