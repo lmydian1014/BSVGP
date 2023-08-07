@@ -309,10 +309,9 @@ double loglikelihood_cpp(int n, mat Se_pos, mat Se_neg, vec Sc, vec r, vec s_sq,
 
 
 // [[Rcpp::export]]
-List sample_gibbs_cpp(mat grids, int T, int V, int n, int L, mat Xmat, vec lambda,vec tau_1_sq_init, 
+List TCGP_fit(mat grids, int T, int V, int n, int L, mat Xmat, vec lambda,vec tau_1_sq_init, 
 	vec tau_2_sq_init, vec c_init, mat e_pos_init, mat e_neg_init, mat Y_pos, mat Y_neg, double alpha1, 
 	double beta1, double alpha2, double beta2, double thres_init, Function rinvgamma){
-	//Rcout << "hello" << endl;
 	mat temp_e_pos = e_pos_init;
 	mat temp_e_neg = e_neg_init;
 	vec temp_tau_1_sq = tau_1_sq_init;
