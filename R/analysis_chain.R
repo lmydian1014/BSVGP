@@ -121,8 +121,7 @@ TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat){
 	#	'fig_cov' = fig_cov, 'sensi_pos' = sensi_pos, 'sensi_neg' = sensi_neg, 'speci_pos' = speci_pos, 'speci_neg' = speci_neg, 'FDR_pos' = FDR_pos, 'FDR_neg' = FDR_neg, 'fig_tau1' = fig_tau1,
 	#	'fig_tau2' = fig_tau2, 'fig_prob_map' = fig_prob_map, "prob_pos" = prob_pos, "prob_neg" = prob_neg, "prob_0" = prob_0))
 	return(list('cor_type' = rho_mean, 'rho_hat' = rho_hat, 'sensi_pos' = sensi_pos, 'sensi_neg' = sensi_neg, 'speci_pos' = speci_pos, 'speci_neg' = speci_neg, 
-		'FDR_pos' = FDR_pos, 'FDR_neg' = FDR_neg, 'fig_tau1' = fig_tau1, 'fig_tau2' = fig_tau2, 
-		"prob_pos" = prob_pos, "prob_neg" = prob_neg, "prob_0" = prob_0))
+		'FDR_pos' = FDR_pos, 'FDR_neg' = FDR_neg, "prob_pos" = prob_pos, "prob_neg" = prob_neg, "prob_0" = prob_0))
 
 }
 
