@@ -6,6 +6,7 @@ An R package for performing the Bayesian Inferences on Spatially-Varying Correla
 list.of.packages = c("easypackages", "truncnorm", "MASS", "invgamma", "BayesGPfit", "lattice", "sn", "coda", "mcmcplots", "mcmc","Rcpp", "plgp", "matrixStats", "igraph", "easypackages")
 new.packages = list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)>0) install.packages(new.packages)
+library(easypackages)
 libraries(list.of.packages)
 
 devtools::install_github("lmydian1014/TCGP")
