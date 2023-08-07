@@ -51,7 +51,7 @@ analysis_chain_ABCD = function(T, chain, burn_in, V, Xmat){
 
 
 
-analysis_chain = function(T, dat, chain, burn_in, grids, Xmat, thres){
+TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat, thres){
 	####### input a list 
 
 	gibbs_c = chain$gibbs_c
