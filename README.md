@@ -48,7 +48,7 @@ chain = TCGP_fit(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c
 ```
 #### Analysis the MCMC chain and perform selection
 ```
-res = TCGP_summary(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
+res = TCGP_summary(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat)
 ```
 #### Plot the selection results and the inclusion probability map
 ```
