@@ -1,5 +1,5 @@
 
-TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat, thres){
+TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat){
 	####### input a list 
 
 	gibbs_c = chain$gibbs_c
@@ -7,7 +7,6 @@ TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat, thres){
 	gibbs_tau_xi_sq = 1
 	gibbs_tau_2_sq = chain$gibbs_tau_2_sq
 	gibbs_thres = chain$gibbs_thres
-	#gibbs_thres = rep(thres, T)
 	temp_logL = chain$temp_logL
 	rho_hat = matrix(nrow = nrow(grids), ncol = T)
 	rho_mean = rep(0, nrow(grids))
