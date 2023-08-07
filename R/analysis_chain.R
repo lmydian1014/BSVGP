@@ -1,55 +1,3 @@
-analysis_chain_ABCD = function(T, chain, burn_in, V, Xmat){
-	gibbs_c = chain$gibbs_c
-	gibbs_tau_1_sq = chain$gibbs_tau_1_sq
-	gibbs_tau_xi_sq = 1
-	gibbs_tau_2_sq = chain$gibbs_tau_2_sq
-	gibbs_thres = chain$gibbs_thres
-	#gibbs_thres = rep(thres, T)
-	temp_logL = chain$temp_logL
-	rho_hat = matrix(nrow = V, ncol = T)
-	rho_mean = rep(0, V)
-	xi_hat_m = matrix(nrow = V, ncol = T)
-	sigma_pos_sq_hat_m = matrix(nrow = V, ncol = T)
-	sigma_neg_sq_hat_m = matrix(nrow = V, ncol = T)
-	for(i in c(1:T)){
-		xi_hat_m[,i] = Xmat %*% gibbs_c[,i]
-		sigma_pos_sq_hat_m[,i] = ifelse(xi_hat_m[,i] > gibbs_thres[i],xi_hat_m[,i], 0)
-  		sigma_neg_sq_hat_m[,i] = ifelse(xi_hat_m[,i] < -gibbs_thres[i],-xi_hat_m[,i], 0)
-
-		numer = sigma_pos_sq_hat_m[,i] - sigma_neg_sq_hat_m[,i]
-		denor1 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_1_sq[,i])
-		denor2 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_2_sq[,i])
-		rho_hat[,i]=  numer/(denor1 * denor2)
-	}
-	rho_hat = rho_hat[,burn_in:T]
-	rho_esti = rowSums(rho_hat)/(T-burn_in+1)
-	prob_pos = c(); prob_neg = c(); prob_0 = c()
-	for(v in c(1:V)){
-		num_0 = sum(rho_hat[v,] == 0)
-		num_pos = sum(rho_hat[v,] > 0)
-		num_neg = sum(rho_hat[v,] < 0)
-		prob_pos = append(prob_pos, num_pos/(T - burn_in + 1))
-		prob_neg = append(prob_neg, num_neg/(T - burn_in + 1))
-		prob_0 = append(prob_0, num_0/(T - burn_in + 1))
-		if(num_0 > (T - burn_in + 1)/4){
-			next;
-		}
-	    if(num_pos > num_neg){
-	    	rho_mean[v] = 1
-	    }
-	    else if(num_pos < num_neg){
-	    	rho_mean[v] = -1
-	    }
-	    else{
-	    	next;
-	    }
-	}
-	return(cbind(prob_pos, prob_neg, prob_0, rho_mean, rho_esti))
-}
-
-
-
-
 
 TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat, thres){
 	####### input a list 
@@ -223,8 +171,62 @@ TCGP_summary = function(T, dat, chain, burn_in, grids, Xmat, thres){
 		'fig_rho' = fig_rho, 'fig_rho2' = fig_rho2,'fig_sigma_pos_sq' = fig_sigma_pos_sq, 'fig_sigma_neg_sq' = fig_sigma_neg_sq, 
 		'fig_cov' = fig_cov, 'sensi_pos' = sensi_pos, 'sensi_neg' = sensi_neg, 'speci_pos' = speci_pos, 'speci_neg' = speci_neg, 'FDR_pos' = FDR_pos, 'FDR_neg' = FDR_neg, 'fig_tau1' = fig_tau1,
 		'fig_tau2' = fig_tau2, 'fig_prob_map' = fig_prob_map, "prob_pos" = prob_pos, "prob_neg" = prob_neg, "prob_0" = prob_0))
-
 }
+
+analysis_chain_ABCD = function(T, chain, burn_in, V, Xmat){
+	gibbs_c = chain$gibbs_c
+	gibbs_tau_1_sq = chain$gibbs_tau_1_sq
+	gibbs_tau_xi_sq = 1
+	gibbs_tau_2_sq = chain$gibbs_tau_2_sq
+	gibbs_thres = chain$gibbs_thres
+	#gibbs_thres = rep(thres, T)
+	temp_logL = chain$temp_logL
+	rho_hat = matrix(nrow = V, ncol = T)
+	rho_mean = rep(0, V)
+	xi_hat_m = matrix(nrow = V, ncol = T)
+	sigma_pos_sq_hat_m = matrix(nrow = V, ncol = T)
+	sigma_neg_sq_hat_m = matrix(nrow = V, ncol = T)
+	for(i in c(1:T)){
+		xi_hat_m[,i] = Xmat %*% gibbs_c[,i]
+		sigma_pos_sq_hat_m[,i] = ifelse(xi_hat_m[,i] > gibbs_thres[i],xi_hat_m[,i], 0)
+  		sigma_neg_sq_hat_m[,i] = ifelse(xi_hat_m[,i] < -gibbs_thres[i],-xi_hat_m[,i], 0)
+
+		numer = sigma_pos_sq_hat_m[,i] - sigma_neg_sq_hat_m[,i]
+		denor1 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_1_sq[,i])
+		denor2 = sqrt(sigma_pos_sq_hat_m[,i] + sigma_neg_sq_hat_m[,i] + gibbs_tau_2_sq[,i])
+		rho_hat[,i]=  numer/(denor1 * denor2)
+	}
+	rho_hat = rho_hat[,burn_in:T]
+	rho_esti = rowSums(rho_hat)/(T-burn_in+1)
+	prob_pos = c(); prob_neg = c(); prob_0 = c()
+	for(v in c(1:V)){
+		num_0 = sum(rho_hat[v,] == 0)
+		num_pos = sum(rho_hat[v,] > 0)
+		num_neg = sum(rho_hat[v,] < 0)
+		prob_pos = append(prob_pos, num_pos/(T - burn_in + 1))
+		prob_neg = append(prob_neg, num_neg/(T - burn_in + 1))
+		prob_0 = append(prob_0, num_0/(T - burn_in + 1))
+		if(num_0 > (T - burn_in + 1)/4){
+			next;
+		}
+	    if(num_pos > num_neg){
+	    	rho_mean[v] = 1
+	    }
+	    else if(num_pos < num_neg){
+	    	rho_mean[v] = -1
+	    }
+	    else{
+	    	next;
+	    }
+	}
+	return(cbind(prob_pos, prob_neg, prob_0, rho_mean, rho_esti))
+}
+
+
+
+
+
+
 
 
 
