@@ -50,6 +50,6 @@ loglikelihood_cpp <- function(n, Se_pos, Se_neg, Sc, r, s_sq, Xmat, Y_pos, Y_neg
 }
 
 sample_gibbs_cpp <- function(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init, tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres_init, rinvgamma) {
-    .Call(`_TCGP_sample_gibbs_cpp`, grids, T, V, n, L, Xmat, lambda, tau_1_sq_init, tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres_init, rinvgamma)
+    .Call(`_TCGP_TCGP_fit`, grids, T, V, n, L, Xmat, lambda, tau_1_sq_init, tau_2_sq_init, c_init, e_pos_init, e_neg_init, Y_pos, Y_neg, alpha1, beta1, alpha2, beta2, thres_init, rinvgamma)
 }
 
