@@ -48,7 +48,7 @@ chain = TCGP_fit(grids, T, V, n, L, Xmat, lambda, tau_1_sq_init,tau_2_sq_init, c
 ```
 #### Analysis the MCMC chain and perform selection
 ```
-res_gibbs = TCGP_summary(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
+res = TCGP_summary(T = T, chain = chain, dat = dat, burn_in = 0.2*T, grids, Xmat, thres)
 ```
 #### Plot the selection results and the inclusion probability map
 ```
@@ -58,7 +58,7 @@ grid.panel = function(...) {
 }
 
 fig = fourfigs.levelplot(
-    res_gibbs$prob_pos, res_gibbs$prob_neg, dat$rho, res_gibbs$cor_type,
+    res$prob_pos, res$prob_neg, dat$rho, res$cor_type,
     grids[, 1],grids[, 2],
     titles = c("Pos.Cor.Prob", "Neg.Cor.Prob", "True correlation", "Selection"),
     layout = c(2, 2), panel = grid.panel)
