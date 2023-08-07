@@ -1,6 +1,5 @@
 \name{TCGP_fit}
 \alias{TCGP_fit}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Bayesian fitting of the Thresholded Correlation Gaussian Process.
 }
@@ -29,8 +28,6 @@ TCGP_fit(
   rinvgamma)
 }
 
-
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{girds}{A matrix of real numbers as grid points where rows are observations and columns are coordinates.}
   \item{T}{A integer number to specify the number of iteractions in MCMC sampling.}
@@ -57,7 +54,6 @@ TCGP_fit(
 
 
 \value{
-%%  ~Describe the value returned
   \item{gibbs_c }{A matrix of dimension L*T represents the posterior samples of c for each iteration.}
   \item{gibbs_tau_1_sq }{A matrix of dimension V*T represents the posterior samples of tau_1_sq for each iteration.}
   \item{gibbs_tau_2_sq }{A matrix of dimension V*T represents the posterior samples of tau_2_sq for each iteration.}
